@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KhetAI — Smart Farming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-1:#2e7d32;
+      --green-2:#28a745;
+      --blue-1:#1ca3d6;
+      --bg:#f7fbf9;
+      --card:#ffffff;
+      --muted:#5b6b5a;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, Arial;
+      background: var(--bg);
+      color: #123;
+    }
+
+    .nav {
+      background: linear-gradient(90deg,var(--green-1), var(--blue-1));
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .menu {
+      margin-left: auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lang-switch {
+      cursor: pointer;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+      background: linear-gradient(180deg, rgba(10,20,10,0.08), rgba(10,20,10,0.03));
+    }
+
+    .hero-card {
+      max-width: 1100px;
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(18,40,24,0.08);
+      padding: 36px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-left { flex: 1; min-width: 280px; }
+    .hero-right { width: 360px; min-width: 260px; }
+
+    h1 {
+      font-size: 28px;
+      margin-top: 0;
+      color: var(--green-1);
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      background: var(--green-2);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--green-1);
+      border: 2px solid rgba(40,167,69,0.2);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: var(--card);
+      padding: 12px 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      min-width: 140px;
+    }
+
+    .stat .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .stat .big {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green-1);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      padding: 36px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 26px rgba(10,20,10,0.04);
+    }
+
+    .cta-strip {
+      margin: 36px 20px;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta-strip .info {
+      background: linear-gradient(90deg, rgba(28,163,214,0.06), rgba(40,167,69,0.04));
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: linear-gradient(90deg,var(--green-1), var(--blue-1));
+      color: white;
+      padding: 18px 20px;
+    }
+
+    footer .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .lang { display: none; }
+    .lang.active { display: block; }
+
+    @media (max-width: 880px) {
+      .menu { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <a class="brand" href="#">
+      <div class="logo">K</div>
+      <div>
+        <div style="font-weight:700">KhetAI</div>
+        <div style="font-size:12px;opacity:0.9">AI-Driven Precision Agriculture</div>
+      </div>
+    </a>
+    <nav class="menu">
+      <div id="nav-en" class="lang active">
+  <a href="index.html">Home</a>
+        <a href="prediction.html">Prediction</a>
+        <a href="challenges.html">Challenges</a>
+        <a href="features.html">Features</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="login.html">Login</a>
+        
+      </div>
+      <div id="nav-hi" class="lang">
+       <a href="index.html">मुखपृष्ठ</a>
+        <a href="prediction.html">पूर्वानुमान</a>
+        <a href="challenges.html">चुनौतियाँ</a>
+        <a href="features.html">विशेषताएँ</a>
+        <a href="solutions.html">समाधान</a>
+        <a href="benefits.html">लाभ</a>
+        <a href="login.html">लॉगिन</a>
+      </div>
+      <div class="lang-switch" onclick="toggleLanguage()">🌐 <span id="lang-label">हिंदी</span></div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-left">
+        <div id="hero-en" class="lang active">
+          <h1>Smarter farming with AI</h1>
+          <p class="lead">Save water, reduce pests, and increase yield. KhetAI uses AI and weather data to help you farm smarter.</p>
+          <div class="cta">
+            <a href="#" class="btn">Get Prediction</a>
+            <a href="#" class="btn secondary">Learn More</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="small">Water Saved</div>
+              <div class="big">28%</div>
+            </div>
+            <div class="stat">
+              <div class="small">Pest Reduction</div>
+              <div class="big">43%</div>
+            </div>
+            <div class="stat">
+              <div class="small">Top Crops</div>
+              <div class="big">Wheat, Rice</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="hero-hi" class="lang">
+          <h1>AI के साथ होशियार खेती</h1>
+          <p class="lead">पानी बचाएं, कीट कम करें और उत्पादन बढ़ाएँ। KhetAI आपको स्मार्ट तरीके से खेती करने में मदद करता है।</p>
+          <div class="cta">
+            <a href="#" class="btn">पूर्वानुमान लें</a>
+            <a href="#" class="btn secondary">और जानें</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="small">पानी की बचत</div>
+              <div class="big">28%</div>
+            </div>
+            <div class="stat">
+              <div class="small">कीट नियंत्रण</div>
+              <div class="big">43%</div>
+            </div>
+            <div class="stat">
+              <div class="small">अनुशंसित फसलें</div>
+              <div class="big">गेहूं, चावल</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=900&q=80&auto=format&fit=crop" alt="Farm" style="width:100%; border-radius:10px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section class="grid">
+    <div class="card lang active" id="feature-en">
+      <h3>Crop & Soil Monitoring</h3>
+      <p>Track NDVI and soil moisture with satellite data.</p>
+    </div>
+    <div class="card lang active">
+      <h3>Pest Prediction</h3>
+      <p>Get alerts based on ML and weather triggers.</p>
+    </div>
+    <div class="card lang active">
+      <h3>Smart Irrigation</h3>
+      <p>Use water efficiently with real-time advice.</p>
+    </div>
+    <div class="card lang active">
+      <h3>Actionable Insights</h3>
+      <p>Clear, simple tips for every farmer.</p>
+    </div>
+
+    <div class="card lang" id="feature-hi">
+      <h3>फसल और मिट्टी निगरानी</h3>
+      <p>उपग्रह डेटा से NDVI और नमी की जानकारी प्राप्त करें।</p>
+    </div>
+    <div class="card lang">
+      <h3>कीट पूर्वानुमान</h3>
+      <p>मौसम और AI से कीट अलर्ट पाएं।</p>
+    </div>
+    <div class="card lang">
+      <h3>स्मार्ट सिंचाई</h3>
+      <p>पानी की सही खपत के लिए सटीक सुझाव।</p>
+    </div>
+    <div class="card lang">
+      <h3>सहज सलाह</h3>
+      <p>सीधी और उपयोगी जानकारी हर किसान के लिए।</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="lang active" id="footer-en">
+        <strong>KhetAI</strong><br>
+        <small>Built for OneEarth Hackathon 2025</small>
+      </div>
+      <div class="lang" id="footer-hi">
+        <strong>खेतीAI</strong><br>
+        <small>OneEarth हैकथॉन 2025 के लिए बनाया गया</small>
+      </div>
+      <div>
+        <small>© 2025 KhetAI</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLanguage() {
+      const langs = document.querySelectorAll('.lang');
+      langs.forEach(el => el.classList.toggle('active'));
+
+      const label = document.getElementById('lang-label');
+      label.textContent = (label.textContent === 'हिंदी') ? 'English' : 'हिंदी';
+    }
+  </script>
+
+</body>
+</html>

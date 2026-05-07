@@ -1,0 +1,22 @@
+[
+  {"city": "Ooty", "soil": ["Loamy", "Clay"], "crops": ["Coffee", "Tea", "Cardamom"]},
+  {"city": "Bangalore", "soil": ["Loamy", "Sandy"], "crops": ["Tomato", "Maize", "Carrot"]},
+  {"city": "Delhi", "soil": ["Loamy", "Clay"], "crops": ["Wheat", "Mustard", "Millet"]},
+  {"city": "Mumbai", "soil": ["Clay", "Loamy"], "crops": ["Rice", "Coconut", "Sugarcane"]},
+  {"city": "Kolkata", "soil": ["Loamy", "Clay"], "crops": ["Rice", "Jute", "Tomato"]},
+  {"city": "Chennai", "soil": ["Sandy", "Loamy"], "crops": ["Millet", "Groundnut", "Sugarcane"]},
+  {"city": "Hyderabad", "soil": ["Loamy", "Clay"], "crops": ["Cotton", "Tomato", "Maize"]},
+  {"city": "Kochi", "soil": ["Loamy", "Sandy"], "crops": ["Coconut", "Banana", "Ginger"]},
+  {"city": "Jaipur", "soil": ["Sandy", "Loamy"], "crops": ["Millet", "Chickpea", "Groundnut"]},
+  {"city": "Lucknow", "soil": ["Loamy", "Clay"], "crops": ["Wheat", "Sugarcane", "Rice"]},
+  {"city": "New York", "soil": ["Loamy", "Clay"], "crops": ["Corn", "Soybean", "Tomato"]},
+  {"city": "London", "soil": ["Loamy", "Clay"], "crops": ["Wheat", "Potato", "Barley"]},
+  {"city": "Paris", "soil": ["Loamy", "Clay"], "crops": ["Wheat", "Beetroot", "Lettuce"]},
+  {"city": "Tokyo", "soil": ["Loamy", "Clay"], "crops": ["Rice", "Soybean", "Spinach"]},
+  {"city": "Sydney", "soil": ["Loamy", "Sandy"], "crops": ["Wheat", "Barley", "Grapes"]},
+  {"city": "Nairobi", "soil": ["Loamy", "Sandy"], "crops": ["Coffee", "Tea", "Maize"]},
+  {"city": "Rio de Janeiro", "soil": ["Loamy", "Sandy"], "crops": ["Sugarcane", "Coffee", "Banana"]},
+  {"city": "Singapore", "soil": ["Loamy", "Clay"], "crops": ["Rice", "Vegetables", "Banana"]},
+  {"city": "Dubai", "soil": ["Sandy"], "crops": ["Dates", "Tomato", "Lettuce"]},
+  {"city": "Cape Town", "soil": ["Loamy", "Sandy"], "crops": ["Wheat", "Barley", "Grapes"]}
+]

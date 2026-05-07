@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KhetAI — Features</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-1:#2e7d32;
+      --blue-1:#1ca3d6;
+      --bg:#f7fbf9;
+      --card:#ffffff;
+      --muted:#5b6b5a;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      font-family:"Poppins",system-ui,Arial;
+      background:var(--bg);
+      color:#123;
+    }
+
+    /* NAVBAR */
+    .nav {
+      background: linear-gradient(90deg,var(--green-1), var(--blue-1));
+      color:white;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:white;
+    }
+    .logo {
+      width:44px;height:44px;border-radius:8px;
+      background:linear-gradient(135deg,rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:18px;
+    }
+    .menu {
+      margin-left:auto;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .menu a {
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:6px;
+    }
+    .menu a:hover { background: rgba(255,255,255,0.08); }
+
+    .lang-switch {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* FEATURES */
+    .wrap {
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+    h1 {
+      text-align:center;
+      color:var(--green-1);
+      margin-bottom:30px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+    .card {
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 8px 26px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      margin-top:0;
+      color:var(--green-1);
+    }
+    .card p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    /* Language toggle system */
+    .lang { display: none; }
+    .lang.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <div class="logo">K</div>
+      <div>
+        <div style="font-weight:700">KhetAI</div>
+        <div style="font-size:12px;opacity:0.9">AI-Driven Precision Agriculture</div>
+      </div>
+    </a>
+    <nav class="menu">
+      <!-- English Nav -->
+      <div class="lang lang-en active">
+        <a href="index.html">Home</a>
+        <a href="prediction.html">Prediction</a>
+        <a href="challenges.html">Challenges</a>
+        <a href="features.html">Features</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <!-- Hindi Nav -->
+      <div class="lang lang-hi">
+        <a href="index.html">मुखपृष्ठ</a>
+        <a href="prediction.html">पूर्वानुमान</a>
+        <a href="challenges.html">चुनौतियाँ</a>
+        <a href="features.html">विशेषताएँ</a>
+        <a href="solutions.html">समाधान</a>
+        <a href="benefits.html">लाभ</a>
+        <a href="login.html">लॉगिन</a>
+      </div>
+
+      <!-- Toggle -->
+      <div class="lang-switch" onclick="toggleLanguage()">🌐 <span id="lang-label">हिंदी</span></div>
+    </nav>
+  </header>
+
+  <!-- FEATURES -->
+  <main class="wrap">
+
+    <!-- English -->
+    <div class="lang lang-en active">
+      <h1>🌱 Key Features of KhetAI</h1>
+      <div class="grid">
+        <div class="card">
+          <h3>🌍 Location-based Prediction</h3>
+          <p>Fetches real-time weather data based on your city to predict crop health.</p>
+        </div>
+        <div class="card">
+          <h3>📊 NDVI Insights</h3>
+          <p>Satellite NDVI index detects vegetation health automatically.</p>
+        </div>
+        <div class="card">
+          <h3>🐛 Pest Outbreak Warnings</h3>
+          <p>Get early alerts about possible pest/disease risks in your fields.</p>
+        </div>
+        <div class="card">
+          <h3>🌾 Crop Recommendations</h3>
+          <p>Suggests profitable alternative crops based on soil & climate.</p>
+        </div>
+        <div class="card">
+          <h3>💧 Smart Irrigation Tips</h3>
+          <p>Personalized advice to optimize water usage and protect crops.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hindi -->
+    <div class="lang lang-hi">
+      <h1>🌱 खेतAI की प्रमुख विशेषताएँ</h1>
+      <div class="grid">
+        <div class="card">
+          <h3>🌍 स्थान-आधारित पूर्वानुमान</h3>
+          <p>आपके शहर के मौसम के डेटा से फसल स्वास्थ्य का पूर्वानुमान करता है।</p>
+        </div>
+        <div class="card">
+          <h3>📊 NDVI अंतर्दृष्टि</h3>
+          <p>सैटेलाइट NDVI सूचकांक स्वचालित रूप से वनस्पति स्वास्थ्य की पहचान करता है।</p>
+        </div>
+        <div class="card">
+          <h3>🐛 कीट प्रकोप चेतावनी</h3>
+          <p>आपके खेत में कीट/रोग जोखिमों की शीघ्र चेतावनी प्राप्त करें।</p>
+        </div>
+        <div class="card">
+          <h3>🌾 फसल सिफारिशें</h3>
+          <p>मिट्टी और जलवायु के आधार पर लाभकारी वैकल्पिक फसलें सुझाता है।</p>
+        </div>
+        <div class="card">
+          <h3>💧 स्मार्ट सिंचाई सुझाव</h3>
+          <p>पानी के उपयोग को अनुकूलित करने और फसल की रक्षा के लिए व्यक्तिगत सलाह।</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    let currentLang = 'en';
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-' + currentLang).forEach(el => el.classList.add('active'));
+      document.getElementById('lang-label').textContent = currentLang === 'en' ? 'हिंदी' : 'English';
+    }
+  </script>
+
+</body>
+</html>

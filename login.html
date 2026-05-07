@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI-Driven Agriculture</title>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- AOS for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+    <style>
+      html {
+        scroll-behavior: smooth; /* Smooth scroll effect */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        color: #333;
+        background-color: #f9f9f9;
+        line-height: 1.6;
+      }
+
+      h1, h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Header */
+      .site-header {
+        background: linear-gradient(135deg, #28a745, #1e7e34);
+        padding: 2rem 1rem 1rem 1rem;
+        text-align: center;
+        color: white;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+      }
+
+      .site-header .site-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .site-header .site-tagline {
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-style: italic;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 1rem auto;
+      }
+
+      /* Sticky Navigation */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        background: linear-gradient(135deg, #28a745, #1e7e34);
+        padding: 0.75rem 1rem;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+
+      .site-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .site-nav ul li {
+        display: inline;
+      }
+
+      .site-nav ul li a {
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        transition: color 0.3s;
+      }
+
+      .site-nav ul li a:hover {
+        color: #c3f3d1;
+      }
+
+      @media (max-width: 768px) {
+        .site-header .site-title {
+          font-size: 2.2rem;
+        }
+
+        .site-header .site-tagline {
+          font-size: 1rem;
+        }
+
+        .site-nav ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+
+      /* ✅ Fix for sticky navbar covering section headings */
+      section {
+        scroll-margin-top: 80px; 
+      }
+
+      /* Hero Section */
+      .hero {
+        background: url('https://images.unsplash.com/photo-1580910051073-7b32f7fefcd0') no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 10px;
+        max-width: 600px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 2rem;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: #218838;
+      }
+
+      /* Challenges Section */
+      .challenges {
+        padding: 4rem 2rem;
+        background: #fff;
+      }
+
+      .challenge-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .challenge-item i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: #28a745;
+      }
+
+      /* Solutions Section */
+      .solutions {
+        background: #e6ffe6;
+        padding: 4rem 2rem;
+      }
+
+      .solution-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
+      }
+
+      .solution-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .solution-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      }
+
+      .solution-card i {
+        font-size: 2.5rem;
+        color: #28a745;
+        margin-bottom: 1rem;
+      }
+
+      .solution-card h3 {
+        margin-bottom: 0.75rem;
+        color: #222;
+      }
+
+      .solution-card p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      /* Features Section */
+      .features {
+        padding: 4rem 2rem;
+        background: #f8f8f8;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-card i {
+        font-size: 2.5rem;
+        color: #28a745;
+        margin-bottom: 1rem;
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .benefits-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .benefit-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 10px rgb(47, 48, 47);
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+
+      .benefit-card i {
+        font-size: 3rem;
+        color: #28a745;
+        margin-bottom: 1rem;
+      }
+
+      .benefit-card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      .benefit-card p {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background: #28a745;
+        color: white;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header" data-aos="fade-down">
+      <div class="container">
+        <h1 class="site-title">AI-Driven Precision Agriculture</h1>
+        <p class="site-tagline">Smart farming solutions for a sustainable future</p>
+      </div>
+      <!-- Navigation Bar -->
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#features">Key Features</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>AI-Driven Precision Agriculture for a Sustainable Future</h1>
+        <p>Smart farming solutions that optimize resources, predict risks, and increase yields.</p>
+        <a href="#solutions" class="cta-button">Explore</a>
+      </div>
+    </section>
+
+    <!-- Challenges -->
+    <section id="challenges" class="challenges" data-aos="fade-up">
+      <h2>Challenges in Modern Agriculture</h2>
+      <div class="challenge-grid">
+        <div class="challenge-item"><i class="fas fa-tint"></i><p>Insufficient use of resources</p></div>
+        <div class="challenge-item"><i class="fas fa-bug"></i><p>Pest outbreaks</p></div>
+        <div class="challenge-item"><i class="fas fa-cloud-sun"></i><p>Uncertain weather patterns</p></div>
+        <div class="challenge-item"><i class="fas fa-hourglass-half"></i><p>Delayed decision-making</p></div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="solutions" data-aos="fade-up">
+      <h2>Innovative Agriculture Solutions</h2>
+      <div class="solution-cards">
+        <div class="solution-card">
+          <i class="fas fa-seedling"></i>
+          <h3>AI-Powered Crop Monitoring</h3>
+          <p>Get real-time insights on crop health and growth stages using satellite and drone imagery.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-cloud-sun-rain"></i>
+          <h3>Predictive Weather Analytics</h3>
+          <p>Advanced forecasting tools help you plan around rainfall, drought, and storms.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-water"></i>
+          <h3>Smart Irrigation & Resource Management</h3>
+          <p>Automated irrigation systems that adjust based on soil and weather data.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-bug-slash"></i>
+          <h3>Pest & Disease Detection</h3>
+          <p>AI models detect early signs of threats and suggest treatments before damage occurs.</p>
+        </div>
+      </div>
+    </section>
+
+   
+    /* Modal styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(230, 55, 102, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: 10px;
+      max-width: 90%;
+      width: 500px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .benefits-section h2 {
+        font-size: 2rem;
+      }
+
+      .benefit-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .benefit-card i {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ 
+
+
+    // Event listeners for cards
+    const cards = document.querySelectorAll('.benefit-card');
+    const modal = document.getElementById('benefitModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImage = document.getElementById('modalImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalSolutions = document.getElementById('modalSolutions');
+    const modalClose = document.getElementById('modalClose');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-benefit');
+        const data = benefitData[key];
+        if (data) {
+          modalTitle.textContent = data.title;
+          modalImage.src = data.image;
+          modalImage.alt = data.title;
+          modalDescription.textContent = data.description;
+
+          // Render solutions
+          modalSolutions.innerHTML = "<h4>Solutions:</h4>";
+          const ul = document.createElement('ul');
+          data.solutions.forEach(sol => {
+            const li = document.createElement('li');
+            li.textContent = sol;
+            ul.appendChild(li);
+          });
+          modalSolutions.appendChild(ul);
+
+          modal.style.display = 'flex';
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+  </script>
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 AI Farming Solutions. All rights reserved.</p>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+  </body>
+</html>

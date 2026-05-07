@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KhetAI - Challenges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green-1: #2e7d32;
+      --blue-1: #1ca3d6;
+      --bg: #f7fbf9;
+      --card: #ffffff;
+      --muted: #5b6b5a;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, Arial;
+      background: var(--bg);
+      color: #123;
+    }
+
+    /* NAVBAR */
+    .nav {
+      background: linear-gradient(90deg, var(--green-1), var(--blue-1));
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .menu {
+      margin-left: auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .lang-switch {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: var(--green-1);
+      margin: 20px 0;
+    }
+    h2 {
+      text-align: center;
+      color: var(--blue-1);
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-left: 8px solid var(--blue-1);
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
+    }
+    .card strong {
+      color: var(--green-1);
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(90deg, var(--green-1), var(--blue-1));
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      margin-top: 40px;
+    }
+
+    /* LANGUAGE TOGGLE */
+    .lang {
+      display: none;
+    }
+    .lang.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <div class="logo">K</div>
+      <div>
+        <div style="font-weight:700">KhetAI</div>
+        <div style="font-size:12px;opacity:0.9">AI-Driven Precision Agriculture</div>
+      </div>
+    </a>
+    <nav class="menu">
+      <div class="lang lang-en active">
+        <a href="index.html">Home</a>
+        <a href="prediction.html">Prediction</a>
+        <a href="challenges.html">Challenges</a>
+        <a href="features.html">Features</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="lang lang-hi">
+        <a href="index.html">मुखपृष्ठ</a>
+        <a href="prediction.html">पूर्वानुमान</a>
+        <a href="challenges.html">चुनौतियाँ</a>
+        <a href="features.html">विशेषताएँ</a>
+        <a href="solutions.html">समाधान</a>
+        <a href="benefits.html">लाभ</a>
+        <a href="login.html">लॉगिन</a>
+      </div>
+      <div class="lang-switch" onclick="toggleLanguage()">🌐 <span id="lang-label">हिंदी</span></div>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <!-- ENGLISH -->
+    <div class="lang lang-en active">
+      <h1>Farming Challenges</h1>
+      <h2>Key Challenges Farmers Face</h2>
+
+      <div class="card"><strong>Pest & Disease Outbreaks:</strong> Unpredictable infestations damage crops and lower yields.</div>
+      <div class="card"><strong>Soil Degradation:</strong> Overuse of fertilizers reduces soil health.</div>
+      <div class="card"><strong>Water Management:</strong> Irregular rainfall and irrigation issues affect productivity.</div>
+      <div class="card"><strong>Climate Change:</strong> Rising temperatures and unpredictable weather create new risks.</div>
+      <div class="card"><strong>Market Uncertainty:</strong> Price fluctuations reduce farmer profits.</div>
+    </div>
+
+    <!-- HINDI -->
+    <div class="lang lang-hi">
+      <h1>कृषि में चुनौतियाँ</h1>
+      <h2>किसानों के सामने प्रमुख समस्याएँ</h2>
+
+      <div class="card"><strong>कीट और रोग प्रकोप:</strong> अप्रत्याशित संक्रमण फसलों को नुकसान पहुँचाते हैं और उत्पादन को कम करते हैं।</div>
+      <div class="card"><strong>मिट्टी का क्षरण:</strong> उर्वरकों के अत्यधिक उपयोग से मिट्टी की गुणवत्ता गिरती है।</div>
+      <div class="card"><strong>जल प्रबंधन:</strong> अनियमित वर्षा और सिंचाई की समस्याएं उत्पादकता को प्रभावित करती हैं।</div>
+      <div class="card"><strong>जलवायु परिवर्तन:</strong> बढ़ते तापमान और अनिश्चित मौसम नई चुनौतियाँ पैदा करते हैं।</div>
+      <div class="card"><strong>बाजार में अनिश्चितता:</strong> कीमतों में उतार-चढ़ाव किसानों की आमदनी को प्रभावित करता है।</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="lang lang-en active"><small>© 2025 KhetAI | Empowering Farmers with AI</small></div>
+    <div class="lang lang-hi"><small>© 2025 KhetAI | एआई के साथ किसानों को सशक्त बनाना</small></div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-' + currentLang).forEach(el => el.classList.add('active'));
+      document.getElementById('lang-label').textContent = currentLang === 'en' ? 'हिंदी' : 'English';
+    }
+  </script>
+
+</body>
+</html>

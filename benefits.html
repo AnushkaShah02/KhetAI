@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KhetAI - Benefits</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --green-1:#2e7d32;
+      --blue-1:#1ca3d6;
+      --bg:#f7fbf9;
+      --card:#ffffff;
+      --muted:#5b6b5a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, Arial;
+      background: var(--bg);
+      color: #123;
+    }
+
+    .nav {
+      background: linear-gradient(90deg, var(--green-1), var(--blue-1));
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .menu {
+      margin-left: auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--green-1);
+      margin: 20px 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--blue-1);
+      margin-bottom: 20px;
+    }
+
+    .benefit-card {
+      background: var(--card);
+      border-left: 8px solid var(--green-1);
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
+    }
+
+    .benefit-card h3 {
+      margin-top: 0;
+      color: var(--green-1);
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      background: linear-gradient(90deg, var(--green-1), var(--blue-1));
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      margin-top: 40px;
+    }
+
+    footer small {
+      opacity: 0.95;
+    }
+
+    .lang {
+      display: none;
+    }
+
+    .lang.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <div class="logo">K</div>
+      <div>
+        <div style="font-weight:700">KhetAI</div>
+        <div style="font-size:12px;opacity:0.9">AI-Driven Precision Agriculture</div>
+      </div>
+    </a>
+    <nav class="menu">
+      <!-- English Nav -->
+      <div class="lang lang-en active">
+        <a href="index.html">Home</a>
+        <a href="prediction.html">Prediction</a>
+        <a href="challenges.html">Challenges</a>
+        <a href="features.html">Features</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="benefits.html" class="active">Benefits</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <!-- Hindi Nav -->
+      <div class="lang lang-hi">
+        <a href="index.html">मुखपृष्ठ</a>
+        <a href="prediction.html">पूर्वानुमान</a>
+        <a href="challenges.html">चुनौतियाँ</a>
+        <a href="features.html">विशेषताएँ</a>
+        <a href="solutions.html">समाधान</a>
+        <a href="benefits.html" class="active">लाभ</a>
+        <a href="login.html">लॉगिन</a>
+      </div>
+
+      <!-- Language Toggle Button -->
+      <div class="lang-switch" onclick="toggleLanguage()">
+        🌐 <span id="lang-label">हिंदी</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <!-- English -->
+    <div class="lang lang-en active">
+      <h1>Farmer Benefits</h1>
+      <h2>Why Farmers Choose KhetAI</h2>
+
+      <div class="benefit-card">
+        <h3>📈 Increased Yield</h3>
+        <p>With real-time insights, farmers get higher productivity with better crop management.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>💰 Cost Savings</h3>
+        <p>Save money on water, fertilizers, and pesticides with smart recommendations.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🌍 Sustainability</h3>
+        <p>Eco-friendly farming practices ensure soil health and sustainable agriculture.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🔒 Risk Reduction</h3>
+        <p>Early warnings about pests, diseases, and weather reduce losses significantly.</p>
+      </div>
+    </div>
+
+    <!-- Hindi -->
+    <div class="lang lang-hi">
+      <h1>किसानों को लाभ</h1>
+      <h2>KhetAI को किसान क्यों चुनते हैं</h2>
+
+      <div class="benefit-card">
+        <h3>📈 पैदावार में वृद्धि</h3>
+        <p>रीयल-टाइम जानकारी से किसान बेहतर फसल प्रबंधन के साथ अधिक उत्पादन प्राप्त करते हैं।</p>
+      </div>
+      <div class="benefit-card">
+        <h3>💰 लागत में बचत</h3>
+        <p>स्मार्ट सिफारिशों से पानी, उर्वरक और कीटनाशकों पर खर्च कम करें।</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🌍 स्थिरता</h3>
+        <p>पर्यावरण के अनुकूल खेती मिट्टी की सेहत और टिकाऊ कृषि को सुनिश्चित करती है।</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🔒 जोखिम में कमी</h3>
+        <p>कीट, बीमारियों और मौसम की पूर्व चेतावनी से नुकसान में काफी कमी आती है।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="lang lang-en active">
+      <small>© 2025 KhetAI | Empowering Farmers with AI</small>
+    </div>
+    <div class="lang lang-hi">
+      <small>© 2025 KhetAI | एआई के साथ किसानों को सशक्त बनाना</small>
+    </div>
+  </footer>
+
+  <!-- Language Switcher Script -->
+  <script>
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      const allLangs = document.querySelectorAll('.lang');
+      allLangs.forEach(el => el.classList.remove('active'));
+
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.querySelectorAll(`.lang-${currentLang}`).forEach(el => el.classList.add('active'));
+
+      // Update switch button label
+      document.getElementById('lang-label').textContent = currentLang === 'en' ? 'हिंदी' : 'English';
+    }
+  </script>
+</body>
+</html>
